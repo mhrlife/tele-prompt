@@ -7,7 +7,6 @@ This package is a wrapper over `"github.com/go-telegram-bot-api/telegram-bot-api
 - **Simplified Prompting**: Instead of manually managing each message, response, and error, TelePrompt encapsulates these into simple, reusable functions.
 - **Error Handling**: Automatic error handling and retries without the need to manually set up each scenario.
 - **Flexible & Extensible**: Built with generics in mind, TelePrompter can adapt to a variety of data types and can be easily extended for custom validation or prompts.
-- **Open 2 Contribute**: With extension in mind, this package is open to new amazing methods.
 
 ## Usage
 You can use this package either with its methods or with the helpers. You can read the examples in the `example` folder.
