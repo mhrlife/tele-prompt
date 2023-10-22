@@ -162,6 +162,26 @@ result, err := tele_prompt.SendMessage[Type](bot, tele_prompt.SendMessageConfig[
     MaxRetry: 3, // Number of retries before giving up, optional
 })
 ```
+The `Handler` function is expected to return a value of the desired type (specified when you use SendMessage[Type]) and an error if any. The error can be used to trigger the OnErrorMessage and manage retries.
+```go
+Handler: func() (Type, error) {
+    // Your handler logic here
+}
+```
+Within the Handler, you can seamlessly integrate various TelePrompt methods to facilitate diverse input validations and retrievals:\
+**Range**: If you're expecting a numerical input from the user that falls within a specific range, you can use the Range method.
+```go
+return manager.Range(context.Background(), userId, minValue, maxValue)
+```
+**OneOf**:To ensure the user's response matches one of the provided choices, leverage the OneOf method.
+```go
+return manager.OneOf(context.Background(), userId, []string{"Option1", "Option2", "Option3"})
+```
+**Video**: If you're awaiting a video response from the user, the Video method comes in handy.
+```go
+return manager.Video(context.Background(), userId)
+```
+... and many more, such as TextField, Email, Document, etc.
 
 
 ## Getting Started
