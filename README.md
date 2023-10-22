@@ -150,6 +150,21 @@ func run(bot *tgbotapi.BotAPI, manager *tele_prompt.Manager, update tgbotapi.Upd
 - **Url**: Validates if the user's input is a well-formed URL.
 - **Email**: Checks if the user's input is a valid email address.
 
+## Helpers
+To use the SendMessage function, you need to provide a configuration using SendMessageConfig, which dictates the messaging behavior, error handling, and data retrieval.
+```go
+result, err := tele_prompt.SendMessage[Type](bot, tele_prompt.SendMessageConfig[Type]{
+    InitialMessage:    tgbotapi.NewMessage(userId, "Your prompt message here"),
+    OnErrorMessage:    tgbotapi.NewMessage(userId, "Message to send on error"), // optional
+    OnMaxRetryMessage: tgbotapi.NewMessage(userId, "Message to send after maximum retries"), // optional
+    Handler: func() (Type, error) {
+        // Your handler logic here, you can use the manager.Method here
+    },
+    MaxRetry: 3, // Number of retries before giving up, optional
+})
+```
+
+
 ## Getting Started
 ### Installation
 To get started with TelePrompt, simply add it to your Go project:
