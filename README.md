@@ -154,7 +154,7 @@ func run(bot *tgbotapi.BotAPI, manager *tele_prompt.Manager, update tgbotapi.Upd
 ### Installation
 To get started with TelePrompt, simply add it to your Go project:
 ```bash
-go get github.com/mhrlife/tele-prompter
+go get github.com/mhrlife/tele-prompt
 ```
 ### Setting up Updates Handling
 In the section of your code where updates are managed, ensure that each update is first passed to TelePrompt's `Handle` method. If `Handle` processes the update, it returns true, indicating that the update should be skipped for further processing.
